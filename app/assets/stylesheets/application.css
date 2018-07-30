@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+.artist-title{
+  font-family: 'Permanent Marker', cursive;
+}
+.artist-title a{
+  color: black;
+}
+
+.hood-title{
+  font-size: 1.3em;
+}
+
+a{
+  text-decoration: none;
+}
+
+body{
+  font-family: 'Waiting for the Sunrise', cursive;
+  font-size: 1.2em;
+}
+
+nav{
+  font-size: 1.3em;
+}
