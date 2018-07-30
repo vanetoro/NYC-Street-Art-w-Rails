@@ -1,0 +1,9 @@
+Here you can add a Mural that is not yet on this site!<br>
+
+<%= form_for (@mural) do |f| %>
+Name:  <%= f.text_field :name %><br>
+Artist: <%= f.collection_select :artist_id, Artist.all, :id, :name, include_blank: 'Please select an artist'  %><br>
+Location: <%= f.collection_select :neighborhood_id, Neighborhood.all, :id, :name, include_blank: 'Please select a location' %><br>
+Upload Picture <br>
+<%= f.submit %>
+<% end %>
