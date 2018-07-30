@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   get '/', to: 'application#welcome'
   resources :murals, only: [:index, :new, :create]
   resources :artists, only: [:index, :show]
+  resources :neighborhoods, only:[:index]
+
+  resources :artists do
+    resources :mural, only: [:show]
+  end
 end

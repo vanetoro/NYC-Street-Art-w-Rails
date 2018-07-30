@@ -9,12 +9,13 @@ class MuralsController < ApplicationController
   end
 
   def create
-    binding.pry
+    @mural = Mural.new(mural_params)
+    redirect_to artist_path(@mural.artist)
   end
 
   private
 
     def mural_params
-      params.require(:mural).permit(:artist_id, :neighborhood_id)
+      params.require(:mural).permit(:artist_id, :name, :neighborhood_id, neighborhood_attributes:[:name])
     end
 end
