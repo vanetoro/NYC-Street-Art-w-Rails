@@ -1,7 +1,10 @@
 class MuralsController < ApplicationController
 
   def index
-    binding.pry
     @murals = Mural.all
+  end
+
+  def new
+    @mural = Mural.new
   end
 end
