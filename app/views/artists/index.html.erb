@@ -1,0 +1,5 @@
+Here is a list of all the artists
+
+<% @artists.each do |artist| %>
+<%= link_to artist.artist_name, artist_path(artist) %><br>
+<% end %>
