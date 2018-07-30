@@ -1,6 +1,7 @@
 Here is a list of all the Murals. If you don't see one please add it <%= link_to 'here', new_mural_path%><br>  <br>
+<ul>
+  <% @murals.each do |mural| %>
+  <li><%= mural.name %> by <%= link_to mural.artist.artist_name, artist_path(mural.artist)   %> located in <%=link_to mural.neighborhood.name, neighborhood_path(mural.neighborhood)  %><br></li>
 
-<% @murals.each do |mural| %>
-<%= mural.name %> by <%= link_to mural.artist.artist_name, artist_path(mural.artist)   %> located in <%=mural.neighborhood.name  %><br>
-
-<% end %>
+  <% end %>
+</ul>

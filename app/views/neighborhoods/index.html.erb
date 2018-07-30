@@ -1,1 +1,10 @@
 These are all the neighborhoods where you can find murals
+
+<% @neighborhoods.each do |hood| %>
+<h3><%= hood.name %></h3>
+
+<% hood.murals.each do |mural| %>
+<h4><%= link_to mural.artist.artist_name, artist_path(mural.artist) %></h4>
+  <%= mural.name %>
+  <% end %>
+<% end %>
