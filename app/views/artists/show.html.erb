@@ -2,3 +2,8 @@
 
 <h4>Real name: <%= @artist.name %><br></h4>
 <%= @artist.bio %>
+
+<% @artist.murals.each do |mural| %>
+<%= mural.name %> <br>
+<%= mural.neighborhood.name %> <br>
+<% end %>

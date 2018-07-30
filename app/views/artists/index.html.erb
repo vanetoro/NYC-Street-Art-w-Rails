@@ -1,5 +1,6 @@
-Here is a list of all the artists
+Here is a list of all the artists <br>
 
 <% @artists.each do |artist| %>
-<%= link_to artist.artist_name, artist_path(artist) %><br>
+<h4><%= link_to artist.artist_name, artist_path(artist) %><br></h4>
+
 <% end %>
