@@ -1,1 +1,7 @@
-These are all the mural in this neighborhood
+These are all the murals in <%= @neighborhood.name %>
+<ul>
+  <% @neighborhood.murals.each do |mural| %>
+ <h4 class="artist-title"><%= link_to mural.artist.artist_name, artist_path(mural.artist) %></h4>
+    <li><%= mural.location_details %></li> 
+    <% end %>
+</ul>
