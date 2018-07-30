@@ -1,9 +1,11 @@
 <h1><%= @artist.artist_name %></h1>
 
 <h4>Real name: <%= @artist.name %><br></h4>
-<%= @artist.bio %>
+<%= @artist.bio %><br>
 
+<ul>
 <% @artist.murals.each do |mural| %>
-<%= mural.name %> <br>
-<%= mural.neighborhood.name %> <br>
+<br>
+ <li><%= mural.name %> located in <%= mural.neighborhood.name %><li> <br>
 <% end %>
+<ul>
