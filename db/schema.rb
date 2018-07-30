@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_002131) do
+ActiveRecord::Schema.define(version: 2018_07_30_214731) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -19,13 +19,20 @@ ActiveRecord::Schema.define(version: 2018_07_30_002131) do
   end
 
   create_table "murals", force: :cascade do |t|
-    t.string "name"
+    t.string "location_details"
     t.integer "neighborhood_id"
     t.integer "artist_id"
+    t.integer "active", default: 1
   end
 
   create_table "neighborhoods", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "uid"
   end
 
 end
