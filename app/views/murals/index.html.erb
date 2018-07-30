@@ -1,5 +1,6 @@
-This is the index page
+Here is a list of all the Murals. If you don't see one please add it here!<br>  
 
 <% @murals.each do |mural| %>
-<%= mural.name %>
+<%= mural.name %> by <%=mural.artist.artist_name  %> located at <%=mural.neighborhood.name  %><br>
+
 <% end %>
