@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :neighborhoods, only:[:index, :show]
 
   resources :artists do
-    resources :mural, only: [:show]
+    resources :mural, only: [:show, :new, :edit]
   end
 end
