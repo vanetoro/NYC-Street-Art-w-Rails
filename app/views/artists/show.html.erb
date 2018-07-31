@@ -1,12 +1,17 @@
-<h1><%= @artist.artist_name %></h1>
+<h1 class="artist-title"><%= @artist.artist_name %></h1>
+<%= instagram(@artist) %>
 
-<h4>Real name: <%= @artist.name %><br></h4>
+<h4 >Real name: <%= @artist.name %><br></h4>
+
 <h3>Short Bio:</h3>
 <%= @artist.bio %><br>
 
+<h3>Murals: </h3>
+
 <ul>
+
 <% @artist.murals.each do |mural| %>
- <li><%= mural.name %> located in <%= link_to mural.neighborhood.name, neighborhoods_path%></li>
+ <li><%= mural.location_details %> located in <%= link_to mural.neighborhood.name, neighborhoods_path%></li>
  <br>
 <% end %>
 </ul>
