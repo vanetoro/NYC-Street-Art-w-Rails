@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2018_07_30_214731) do
     t.string "name"
     t.string "artist_name"
     t.string "bio"
+    t.string "instagram"
   end
 
   create_table "murals", force: :cascade do |t|

@@ -4,6 +4,7 @@ class CreateArtists < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :artist_name
       t.string :bio
+      t.string :instagram
     end
   end
 end

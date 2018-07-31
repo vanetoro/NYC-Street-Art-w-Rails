@@ -9,8 +9,8 @@ Artist.delete_all
 Neighborhood.delete_all
 Mural.delete_all
 
-baron = Artist.create(name: 'Gordon Stevenson', artist_name: 'Baron Von Fancy', bio: "Multimedia artist who lives and works in New York City")
-pantone = Artist.create(name: 'Unknown', artist_name: 'Felipe Pantone', bio: 'Visual artist who is best known for his street art style that combines elements from graphic design with geometric shapes')
+baron = Artist.create(name: 'Gordon Stevenson', artist_name: 'Baron Von Fancy', bio: "Multimedia artist who lives and works in New York City", instagram: 'https://www.instagram.com/baronvonfancy/?hl=en')
+pantone = Artist.create(name: 'Unknown', artist_name: 'Felipe Pantone', bio: 'Visual artist who is best known for his street art style that combines elements from graphic design with geometric shapes', instagram: 'https://www.instagram.com/felipepantone/')
 andre = Artist.create(name: 'André Saraiva ', artist_name: 'Andre', bio: 'André started tagging a top-hatted, stick figure character by the name of Mr. A on the streets of Paris, which earned him a reputation as a renowned graffiti artist')
 
 soho = Neighborhood.create(name: "Soho")
