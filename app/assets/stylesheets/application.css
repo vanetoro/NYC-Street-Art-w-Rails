@@ -15,9 +15,17 @@
  */
 .artist-title{
   font-family: 'Permanent Marker', cursive;
+
+}
+
+h4.artist-title{
+  margin-bottom: 10px;
 }
 .artist-title a{
   color: black;
+}
+nav{
+  padding-bottom: 15px;
 }
 
 .hood-title{
@@ -26,6 +34,7 @@
 
 a{
   text-decoration: none;
+  color: #e016bb;
 }
 
 body{
