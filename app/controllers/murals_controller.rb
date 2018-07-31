@@ -10,7 +10,11 @@ class MuralsController < ApplicationController
 
   def create
     @mural = Mural.new(mural_params)
-    redirect_to artist_path(@mural.artist)
+    if @mural.save
+        redirect_to artist_path(@mural.artist)
+    else
+      render :new
+    end
   end
 
   private
