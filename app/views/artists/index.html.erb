@@ -1,5 +1,8 @@
 Here is a list of all the artists <br>
-
+<%= link_to 'Most Popular', artists_most_popular_path %>
 <% @artists.each do |artist| %>
 <h4 class="artist-title"><%= link_to artist.artist_name, artist_path(artist) %><br></h4>
 <% end %>
+
+
+Don't see an artist add them <%= link_to 'here', new_artist_path %>
