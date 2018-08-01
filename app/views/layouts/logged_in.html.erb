@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NYCStreetArtGuide</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise|Tajawal" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav>
+    <%= link_to 'ARTISTS', artists_path %> · <%= link_to 'MURALS', murals_path %> ·  <%= link_to 'NEIBORHOODS', neighborhoods_path %>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

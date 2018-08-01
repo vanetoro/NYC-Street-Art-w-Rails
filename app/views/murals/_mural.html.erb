@@ -1,11 +1,12 @@
-<%= form_for (@mural) do |f| %>
+<%= form_for mural do |f| %>
+<%= f.hidden_field :artist_id, value:  set_artist_by_id.id %>
 Please give us a little information about where the mural is located:  <%= f.text_field :location_details%><br>
-Artist: <%= f.collection_select :artist_id, Artist.all, :id, :artist_name, include_blank: 'Please select an artist'  %><br>
 Location: <%= f.collection_select :neighborhood_id, Neighborhood.all, :id, :name, include_blank: 'Please select a location' %><br>
 Don't see the neighborhood please add it
-<%= f.fields_for :neighborhood, @mural.build_neighborhood do |neighborhood_fields|%>
+<%= f.fields_for :neighborhood, mural.build_neighborhood do |neighborhood_fields|%>
   <%= neighborhood_fields.text_field :name%><br>
 <% end %>
-Upload Picture <br>
+<%= f.label :add_picture %>
+<%= f.file_field :avatar %>
 <%= f.submit %>
 <% end %>

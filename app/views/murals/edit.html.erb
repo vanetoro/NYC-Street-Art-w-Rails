@@ -1,1 +1,5 @@
-<%= render partial: 'mural', locals: mural: @mural %>
+<h2><%= set_artist_by_id.artist_name %> </h2>
+
+See something wrong? Gives a little help!
+
+<%= render partial: 'mural', locals: {mural: @mural}%>

@@ -1,0 +1,11 @@
+<%= form_for(artist) do |f| %>
+<%= f.label :artist_name %>
+<%= f.text_field :artist_name%><br>
+<%= f.label :real_name %>
+<%= f.text_field :name%><br>
+<%= f.label :short_bio %>
+<%= f.text_area :bio, size: '20x4'%><br>
+<%= f.label :instagram%>
+@<%= f.text_field :instagram%><br>
+<%= f.submit %>
+<% end %>
