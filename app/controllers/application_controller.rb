@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   def set_mural
     @mural = Mural.find(params[:id])
   end
+
+  def set_user
+    @user ||= User.find_by_id(session[:user_id])
+  end
 end
