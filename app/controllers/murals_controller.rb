@@ -1,4 +1,5 @@
 class MuralsController < ApplicationController
+  layout 'logged_in'
 
   def index
     @murals = Mural.all
@@ -10,6 +11,8 @@ class MuralsController < ApplicationController
 
   def create
     @mural = Mural.new(mural_params)
+    binding.pry
+    # @mural.user = set_user.id
     if @mural.save
         redirect_to artist_path(@mural.artist)
     else
@@ -17,9 +20,26 @@ class MuralsController < ApplicationController
     end
   end
 
+  def show
+    set_mural
+  end
+
+  def edit
+    set_mural
+  end
+  def update
+    set_mural.update(mural_params)
+    if @mural.save
+      redirect_to artist_mural_path(@mural.artist, @mural)
+    else
+      render :edit
+    end
+  end
+
+
   private
 
     def mural_params
-      params.require(:mural).permit(:artist_id, :name, :neighborhood_id, neighborhood_attributes:[:name])
+      params.require(:mural).permit(:artist_id, :location_details, :neighborhood_id, :user_id, :avatar, neighborhood_attributes:[:name])
     end
 end
