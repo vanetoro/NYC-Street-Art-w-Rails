@@ -1,0 +1,11 @@
+
+
+ <%= image(@mural) %><br>
+by <%= link_to @mural.artist.artist_name, artist_path(@mural.artist) %><br>
+This is where you can find it! <%= @mural.location_details %><br>
+<%= active?(@mural) %><br>
+Neighborhood: <%= link_to @mural.neighborhood.name, neighborhood_path(@mural.neighborhood) %><br>
+
+
+
+<%= link_to 'Edit', edit_artist_mural_path(@mural.artist, @mural) %>
