@@ -2,7 +2,7 @@ class MuralsController < ApplicationController
   layout 'logged_in'
 
   def index
-    @murals = Mural.all
+    @neighborhoods = Neighborhood.all_hoods
   end
 
   def new
@@ -36,6 +36,11 @@ class MuralsController < ApplicationController
     end
   end
 
+  def destroy
+    set_mural
+    @mural.destroy
+    redirect_to artist_path(@mural.artist)
+  end
 
   private
 
