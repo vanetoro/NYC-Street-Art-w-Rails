@@ -1,3 +1,14 @@
 // Place all the styles related to the murals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+img{
+  object-fit: contain;
+  height: 100%;
+  width: 450px;
+}
+
+// div.image{
+//     max-height: 10px;
+//     max-width: 100px;
+//     float: none;
+// }
