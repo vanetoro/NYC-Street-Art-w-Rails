@@ -6,6 +6,7 @@ Don't see the neighborhood please add it
 <%= f.fields_for :neighborhood, mural.build_neighborhood do |neighborhood_fields|%>
   <%= neighborhood_fields.text_field :name%><br>
 <% end %>
+Check if mural is currently active?  <%= f.check_box :active %><br>
 <%= f.label :add_picture %>
 <%= f.file_field :avatar %>
 <%= f.submit %>
