@@ -9,5 +9,5 @@ This is where you can find it! <%= @mural.location_details %><br>
 Neighborhood: <%= link_to @mural.neighborhood.name, neighborhood_path(@mural.neighborhood) %><br>
 
 
-
 <%= link_to 'Edit', edit_artist_mural_path(@mural.artist, @mural) %>
+<%= delete_mural %>
