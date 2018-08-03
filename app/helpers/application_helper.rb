@@ -8,7 +8,7 @@ module ApplicationHelper
 
   def image(mural)
     if mural.avatar.attached?
-      image_tag mural.avatar.variant(resize: "50X50")
+      image_tag mural.avatar
     end
   end
 
@@ -21,6 +21,12 @@ module ApplicationHelper
       'Mural is currently on display'
     else
       "No longer available"
+    end
+  end
+
+  def delete_mural
+    if @user.admin == 1
+      link_to 'Delete'
     end
   end
 
