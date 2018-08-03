@@ -13,8 +13,13 @@
   </head>
 
   <body>
-    <nav>
-    <%= link_to 'ARTISTS', artists_path %> · <%= link_to 'MURALS', murals_path %> ·  <%= link_to 'NEIBORHOODS', neighborhoods_path %>
+    <div class="welcome">
+      <h1 class="welcome-title">NYC Street Art</h1>
+
+    </div>
+    <nav class="welcome-nav">
+
+      <%= link_to 'Sign-in', new_session_path %> · <%= link_to 'Sign-Up', new_user_path %> · <%= link_to 'Sign-In/Sign-Up via Google', '/auth/google_oauth2' %>
     </nav>
     <%= yield %>
   </body>
