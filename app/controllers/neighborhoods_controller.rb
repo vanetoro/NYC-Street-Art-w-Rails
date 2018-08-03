@@ -6,7 +6,6 @@ class NeighborhoodsController < ApplicationController
 
   def show
     @neighborhood = Neighborhood.find(params[:id])
-    binding.pry
   end
 
   def top3

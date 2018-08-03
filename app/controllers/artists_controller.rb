@@ -21,6 +21,8 @@ layout 'logged_in'
     end
   end
 
+
+
   def edit
     set_artist
   end
