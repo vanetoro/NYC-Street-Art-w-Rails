@@ -28,8 +28,8 @@ nav{
   padding-bottom: 15px;
 }
 
-.hood-title{
-  font-size: 1.3em;
+.field_with_errors{
+  clear: both;
 }
 
 a{
@@ -44,4 +44,43 @@ body{
 
 nav{
   font-size: 1.3em;
+  margin-right: 100px;
+}
+
+.nav-left{
+  float: left;
+}
+.nav-right{
+  float: right;
+}
+
+.clear-nav{
+  clear: both;
+}
+
+.welcome-page{
+  font-size: 1.1em;
+
+}
+
+img{
+  margin: 10px;
+}
+
+.welcome-page p{
+    font-family: 'Permanent Marker', cursive;
+    clear: both;
+    margin-bottom: 0;
+}
+.welcome-title{
+  font-size: 2.5em;
+  float: left;
+}
+.welcome{
+    margin-left: 10px;
+}
+
+.welcome-nav{
+  float: right;
+  margin-top: 20px;
 }
