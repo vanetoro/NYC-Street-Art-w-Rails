@@ -13,9 +13,15 @@
   </head>
 
   <body>
-    <nav>
-    <%= link_to 'ARTISTS', artists_path %> · <%= link_to 'MURALS', murals_path %> ·  <%= link_to 'NEIBORHOODS', neighborhoods_path %>
+    <nav class="nav-right">
+      <%= link_to set_user.username.upcase, edit_user_path(set_user) %>  · <%= link_to 'SIGN OUT', signout_path %>
     </nav>
+    <nav class="nav-left">
+    <%= link_to 'ARTISTS', artists_path %> · <%= link_to 'NEIBORHOODS', neighborhoods_path %> · HISTORY
+    </nav>
+    <div class="clear-nav">
+
+    </div>
     <%= yield %>
   </body>
 </html>
