@@ -27,6 +27,7 @@ class MuralsController < ApplicationController
   def edit
     set_mural
   end
+
   def update
     set_mural.update(mural_params)
     if @mural.save
@@ -39,12 +40,13 @@ class MuralsController < ApplicationController
   def destroy
     set_mural
     @mural.destroy
+    binding.pry
     redirect_to artist_path(@mural.artist)
   end
 
   private
 
     def mural_params
-      params.require(:mural).permit(:artist_id, :location_details, :neighborhood_id, :user_id, :avatar, neighborhood_attributes:[:name])
+      params.require(:mural).permit(:artist_id, :location_details, :neighborhood_id, :user_id, :avatar, :active,  neighborhood_attributes:[:name])
     end
 end
