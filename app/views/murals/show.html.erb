@@ -1,6 +1,8 @@
 
+<div class="image">
+   <%= image(@mural) %><br>
+</div>
 
- <%= image(@mural) %><br>
 by <%= link_to @mural.artist.artist_name, artist_path(@mural.artist) %><br>
 This is where you can find it! <%= @mural.location_details %><br>
 <%= active?(@mural) %><br>
