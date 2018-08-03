@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   helper_method :set_artist, :set_mural, :logged_in
+  layout 'logged_in', only: :history
 
   def welcome
+  end
+
+  def history
   end
 
   def logged_in
