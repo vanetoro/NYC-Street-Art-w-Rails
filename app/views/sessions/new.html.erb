@@ -1,7 +1,16 @@
-<%= form_for (@user), :url => { :controller => "sessions", :action => "create" }  do |f| %>
-  <%= f.label :username %>:
-  <%= f.text_field :username %><br>
-  <%= f.label :password %>:
-  <%= f.password_field :password %><br>
-  <%= f.submit 'Sign In'%>
-<%end%>
+<div class="login-errors">
+  <% if flash[:error] %>
+  <%= flash[:error] %>
+  <% end %>
+</div>
+
+
+<div class="sign-up-form">
+  <%= form_for (@user), :url => { :controller => "sessions", :action => "create" }  do |f| %>
+    <%= f.label :username %>:
+    <%= f.text_field :username %><br>
+    <%= f.label :password %>:
+    <%= f.password_field :password %><br>
+    <%= f.submit 'Sign In'%>
+  <%end%>
+</div>
