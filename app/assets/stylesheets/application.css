@@ -84,3 +84,9 @@ img{
   float: right;
   margin-top: 20px;
 }
+
+.history{
+  max-width: 800px;
+  justify-content: center;
+  margin-left: 50px;
+}
