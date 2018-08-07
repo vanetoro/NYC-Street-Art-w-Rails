@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  
+
 layout 'logged_in'
   def index
     @artists =Artist.all_artists
@@ -37,6 +37,13 @@ layout 'logged_in'
   def popular
     @artists = Artist.most_popular
     render :index
+  end
+
+
+  def destroy
+    set_artist
+    @artist.destroy
+    redirect_to artists_path
   end
 
   private
