@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   layout 'logged_in', only: :edit
 
+
   def new
     logged_in
     @user = User.new
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.upcase_username
     if @user.save
       redirect_to artists_path
     else
@@ -24,6 +26,7 @@ class UsersController < ApplicationController
       set_user.skip_password_validation = true
     end
       @user.update(user_params)
+      upcase_username
     if @user.save
       redirect_to artists_path
     else
@@ -32,6 +35,12 @@ class UsersController < ApplicationController
   end
 
   private
+
+
+
+    def upcase_username
+      @user.username.upcase!
+    end
 
     def user_params
       params.require(:user).permit(:username, :password, :password_confirmation, :email)
