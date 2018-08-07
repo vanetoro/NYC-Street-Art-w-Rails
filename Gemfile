@@ -16,7 +16,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 gem 'omniauth'
-gem "omniauth-google-oauth2", "~> 0.2.1"
+# gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'omniauth-google-oauth2', '~> 0.5.3'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'mini_magick'
 
