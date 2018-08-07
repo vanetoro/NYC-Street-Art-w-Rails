@@ -10,7 +10,6 @@ class Artist < ApplicationRecord
   end
 
   def self.most_popular
-    
     joins(:murals).group(:artist_id).order('count(murals.artist_id)desc').limit(5)
   end
 

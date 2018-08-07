@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+  
 layout 'logged_in'
   def index
     @artists =Artist.all_artists

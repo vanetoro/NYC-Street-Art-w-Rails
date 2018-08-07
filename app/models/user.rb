@@ -13,4 +13,6 @@ class User < ApplicationRecord
 
 
   attr_accessor :skip_password_validation
+
+  
 end
