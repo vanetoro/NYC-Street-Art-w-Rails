@@ -2,7 +2,7 @@ class MuralsController < ApplicationController
   layout 'logged_in'
 
   def index
-    @neighborhoods = Neighborhood.all_hoods
+    @murals = set_user.murals
   end
 
   def new
@@ -11,8 +11,7 @@ class MuralsController < ApplicationController
 
   def create
     @mural = Mural.new(mural_params)
-    binding.pry
-    # @mural.user = set_user.id
+    @mural.user = set_user
     if @mural.save
         redirect_to artist_path(@mural.artist)
     else
