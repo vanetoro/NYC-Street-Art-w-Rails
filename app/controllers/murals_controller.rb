@@ -39,7 +39,6 @@ class MuralsController < ApplicationController
   def destroy
     set_mural
     @mural.destroy
-    binding.pry
     redirect_to artist_path(@mural.artist)
   end
 

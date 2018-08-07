@@ -11,7 +11,6 @@ module MuralsHelper
   def image(mural)
     if mural.avatar.attached?
       image_tag mural.avatar
-      # , data: { no-turbolink: true }
     end
   end
 
