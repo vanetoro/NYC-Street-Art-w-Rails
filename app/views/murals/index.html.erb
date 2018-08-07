@@ -1,9 +1,10 @@
-Here is a list of all the Murals. If you don't see one please add it <%= link_to 'here', new_mural_path%><br>  <br>
-<% @neighborhoods.each do |hood| %>
 
-<h2><%= hood.name %></h2>
+<% if @murals.empty? %>
+  You haven't added any murals yet! Check out the <%= link_to'artists', artists_path %> page to add one.
+
+  <% else %>
   <ul>
-    <% hood.murals.each do |mural| %>
+    <% @murals.each do |mural| %>
     <li><%= link_to mural.location_details, mural_path(mural) %> by <%= link_to mural.artist.artist_name, artist_path(mural.artist) %> located in <%=link_to mural.neighborhood.name, neighborhood_path(mural.neighborhood) %><br></li>
     <% end %>
   </ul>
