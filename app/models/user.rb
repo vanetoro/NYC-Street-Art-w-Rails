@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :murals
-  validates :username, :email, presence: true
+  validates :email, presence: true
   validates :username, :email, uniqueness: true
+  validates :username, presence: { case_sensitive: false }
 
   validates :password, presence: true, unless: :skip_password_validation
 
@@ -14,5 +15,5 @@ class User < ApplicationRecord
 
   attr_accessor :skip_password_validation
 
-  
+
 end
