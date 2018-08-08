@@ -1,6 +1,8 @@
 class ArtistsController < ApplicationController
+  layout 'logged_in'
+  before_action :not_logged_in
 
-layout 'logged_in'
+
   def index
     @artists =Artist.all_artists
   end

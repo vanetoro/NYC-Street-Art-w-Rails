@@ -1,5 +1,6 @@
 class MuralsController < ApplicationController
   layout 'logged_in'
+  before_action :not_logged_in
 
   def index
     @murals = set_user.murals

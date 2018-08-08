@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
   def history
   end
 
+  def not_logged_in
+    if !set_user
+      redirect_to root_path
+    end
+  end
+
   def logged_in
     if !!set_user
       redirect_to artists_path
