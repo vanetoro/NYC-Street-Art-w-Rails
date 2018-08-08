@@ -1,25 +1,22 @@
-# README
+NYC-Street-Art-Guide
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+App that lets users view, add and edit murals located in NYC.
 
-Things you may want to cover:
 
-* Ruby version
+New York City is known for it's street art. Well now there is an app to keep track of all the murals located all over the city.
 
-* System dependencies
+This app lets users view, add and edit murals located in NYC.
 
-* Configuration
+A user can see all the murals located in a specific neighborhood or by their favorite artist!
 
-* Database creation
+INSTALLATION:
+Fork, and then Clone this repo to your local computer
 
-* Database initialization
+In terminal
+--"bundle install"
+--Migrate the database with "rake db:Migrate"
+--Seed the database (to see example data) with "rake db:seed"
 
-* How to run the test suite
+To start the program on your local computer, run "rails s" from your terminal.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# NYC-Street-Art-Guide
+To stop the server, type "^C" in your terminal.
