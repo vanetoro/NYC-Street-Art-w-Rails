@@ -17,7 +17,11 @@ Check if mural is currently active?  <%= f.check_box :active %><br>
     $("form#new_mural").on('submit', function(event) {
         event.preventDefault();
         console.log(event)
-        alert('this is working')
+        var values = $(this).serialize()
+        var posting = $.post('/murals', values)
+        // posting.done(function (data){
+        //   console.log(data)
+        // })
     })
   })
 </script>
