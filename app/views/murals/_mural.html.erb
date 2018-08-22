@@ -11,3 +11,13 @@ Check if mural is currently active?  <%= f.check_box :active %><br>
 <%= f.file_field :avatar %>
 <%= f.submit %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $("form#new_mural").on('submit', function(event) {
+        event.preventDefault();
+        console.log(event)
+        alert('this is working')
+    })
+  })
+</script>
