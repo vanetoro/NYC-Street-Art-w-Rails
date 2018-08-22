@@ -11,3 +11,17 @@ Neighborhood: <%= link_to @mural.neighborhood.name, neighborhood_path(@mural.nei
 
 <%= link_to 'Edit', edit_artist_mural_path(@mural.artist, @mural) %>
 <%= delete_mural %>
+
+
+<div id="mural">
+  
+</div>
+
+<script type="text/javascript" charset='utf-8'>
+  $(function(){
+    $('#artistMurals').on('click', function (e) {
+      e.preventDefault()
+      debugger
+    })
+  })
+</script>
