@@ -22,6 +22,7 @@ class MuralsController < ApplicationController
 
   def show
     set_mural
+    render json: @mural, status: 200
   end
 
   def edit

@@ -10,7 +10,7 @@ Neighborhood.delete_all
 Mural.delete_all
 
 baron = Artist.create(name: 'Gordon Stevenson', artist_name: 'Baron Von Fancy', bio: "Multimedia artist who lives and works in New York City", instagram: 'baronvonfancy')
-pantone = Artist.create(name: 'Unknown', artist_name: 'Felipe Pantone', bio: 'Visual artist who is best known for his street art style that combines elements from graphic design with geometric shapes', instagram: 'felipepantone/')
+pantone = Artist.create(name: 'Unknown', artist_name: 'Felipe Pantone', bio: 'Visual artist who is best known for his street art style that combines elements from graphic design with geometric shapes', instagram: 'felipepantone')
 andre = Artist.create(name: 'André Saraiva ', artist_name: 'Andre', bio: 'André started tagging a top-hatted, stick figure character by the name of Mr. A on the streets of Paris, which earned him a reputation as a renowned graffiti artist')
 
 soho = Neighborhood.create(name: "Soho")
