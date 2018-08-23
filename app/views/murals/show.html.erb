@@ -8,11 +8,12 @@ This is where you can find it! <p id="muralLocation"><%= @mural.location_details
 <%= active?(@mural) %><br>
 Neighborhood: <p id="muralHood"><%= link_to @mural.neighborhood.name, neighborhood_path(@mural.neighborhood), id: 'muralHood' %></p>
 
+<%= next_mural(@mural) %>
+<%= previous_mural(@mural) %>
 
 <%= link_to 'Edit', edit_artist_mural_path(@mural.artist, @mural) %>
 <%= delete_mural %>
-<%= link_to 'Next', artist_mural_path(@mural.artist, @mural.next) , class: 'nextMural'%>
-<%= link_to 'Previous', artist_mural_path(@mural.artist, @mural.previous), class: 'nextMural' %>
+
 
 <div id="mural">
 
