@@ -1,10 +1,12 @@
 Here is a list of all the artists <br>
 <%= link_to 'Most Popular', artists_most_popular_path %> <div class="right"><%= link_to 'Add Artist', new_artist_path %></div>
 <div id="artistList">
-  <div id='artistMurals'>
+
   <% @artists.each do |artist| %>
-  <h4 class="artistTitle-<%= artist.id %>"><%= link_to artist.artist_name, artist_path(artist) %><br></h4>
-</div>
+  <h3 class="artistTitle-<%= artist.id %>"><%= link_to artist.artist_name, artist_path(artist) %></h4>
+    <%= link_to 'Murals', artist_path(artist),  class: 'quickView black' %>
+  <div id='artistMurals-<%= artist.id %>'>
+  </div>
   <% end %>
 
 
@@ -14,14 +16,16 @@ Here is a list of all the artists <br>
 
 <script type="text/javascript" charset="utf-8">
 $(function() {
-  $("#artistList").on('click',function(e){
+  $(".quickView").on('click',function(e){
     e.preventDefault()
-    $("#artistMurals").empty()
-    let path = event['target']['pathname']
-      getMurals = $.get(path)
+      var path = e.target.pathname
+      getMurals = $.getJSON(`${path}`)
       getMurals.done(function(artist) {
+        let artistId = artist.id
+        $(`#artistMurals-${artistId}`).empty()
+        debugger
         artist.murals.forEach(function(mural){
-          $("#artistMurals").append(`<a href="#" data-muralId="${mural.id}">${mural.location_details} - ${mural.neighborhood.name}<a><br>`)
+          $(`#artistMurals-${artistId}`).append(`<a class="black"href="#" data-muralId="${mural.id}">${mural.location_details} - ${mural.neighborhood.name}<a><br>`)
         })
       })
 
