@@ -1,11 +1,31 @@
 Here is a list of all the artists <br>
 <%= link_to 'Most Popular', artists_most_popular_path %> <div class="right"><%= link_to 'Add Artist', new_artist_path %></div>
-<div class="main-text">
-
+<div id="artistList">
+  <div id='artistMurals'>
   <% @artists.each do |artist| %>
-  <h4 class="artist-title"><%= link_to artist.artist_name, artist_path(artist) %><br></h4>
+  <h4 class="artistTitle-<%= artist.id %>"><%= link_to artist.artist_name, artist_path(artist) %><br></h4>
+</div>
   <% end %>
 
 
 
 </div>
+
+
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $("#artistList").on('click',function(e){
+    e.preventDefault()
+    $("#artistMurals").empty()
+    let path = event['target']['pathname']
+      getMurals = $.get(path)
+      getMurals.done(function(artist) {
+        artist.murals.forEach(function(mural){
+          $("#artistMurals").append(`<a href="#" data-muralId="${mural.id}">${mural.location_details} - ${mural.neighborhood.name}<a><br>`)
+        })
+      })
+
+  })
+})
+
+</script>
