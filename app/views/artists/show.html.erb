@@ -29,16 +29,6 @@
   <%= render partial: 'murals/mural', locals: {mural: @mural, artist: @artist}%>
 </div>
 
-<script type="text/javascript" charset='utf-8'>
-  $(function() {
-    $("#newMural").on('click', function(e) {
-      e.preventDefault()
-      $("#newMuralForm").css({
-        'display': 'block',
-    })
-  })
-  })
-</script>
 
 <!-- <div id="displayMural">
 
