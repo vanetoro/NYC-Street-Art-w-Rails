@@ -10,7 +10,6 @@
 
 <h3>Short Bio:</h3>
 <%= @artist.bio %><br>
-
 <h3>Murals: </h3>
 
 <ul id="artistMurals">
@@ -24,12 +23,28 @@
  <br>
 <% end %>
 </ul>
+<h3>Don't see a Mural add it! <%= link_to 'New Mural', new_artist_mural_path(@artist), id: "newMural" %></h3>
 
-<div id="displayMural">
-
+<div class="hide "id="newMuralForm">
+  <%= render partial: 'murals/mural', locals: {mural: @mural, artist: @artist}%>
 </div>
 
-<%= link_to 'New Mural', new_artist_mural_path(@artist) %> <%= link_to 'Edit Details', edit_artist_path %>
+<script type="text/javascript" charset='utf-8'>
+  $(function() {
+    $("#newMural").on('click', function(e) {
+      e.preventDefault()
+      $("#newMuralForm").css({
+        'display': 'block',
+    })
+  })
+  })
+</script>
+
+<!-- <div id="displayMural">
+
+</div> -->
+
+<!-- <%= link_to 'New Mural', new_artist_mural_path(@artist) %> <%= link_to 'Edit Details', edit_artist_path %> -->
 
 
 <!-- <script type="text/javascript">

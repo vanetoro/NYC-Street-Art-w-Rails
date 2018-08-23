@@ -30,6 +30,7 @@ class MuralsController < ApplicationController
 
   def edit
     set_mural
+    @artist = @mural.artist
   end
 
   def update
