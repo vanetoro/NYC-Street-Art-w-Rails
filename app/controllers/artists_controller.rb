@@ -9,6 +9,7 @@ class ArtistsController < ApplicationController
 
   def show
     set_artist
+    render json: @artist, status: 200
   end
 
   def new

@@ -4,6 +4,11 @@ class MuralsController < ApplicationController
 
   def index
     @murals = set_user.murals
+    
+   #  respond_to do |format|
+   #   format.html { render :index }
+   #   format.json { render json: }
+   # end
   end
 
   def new
