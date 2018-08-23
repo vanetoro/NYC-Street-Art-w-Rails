@@ -9,7 +9,12 @@ class ArtistsController < ApplicationController
 
   def show
     set_artist
-    render json: @artist, status: 200
+    respond_to do |format|
+
+      format.html
+      format.json { render json: @artist , status: 200}
+    end
+    # render json: @artist, status: 200
   end
 
   def new
