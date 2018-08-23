@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   private
 
   def sign_in_with_password
-    @user = User.find_by(username: params[:user][:username])
+    @user = User.find_by(username: params[:user][:username].downcase)
     binding.pry
       if !@user.nil? && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
