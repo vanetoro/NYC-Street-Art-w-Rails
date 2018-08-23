@@ -23,9 +23,8 @@ $(function() {
       getMurals.done(function(artist) {
         let artistId = artist.id
         $(`#artistMurals-${artistId}`).empty()
-        debugger
         artist.murals.forEach(function(mural){
-          $(`#artistMurals-${artistId}`).append(`<a class="black"href="#" data-muralId="${mural.id}">${mural.location_details} - ${mural.neighborhood.name}<a><br>`)
+          $(`#artistMurals-${artistId}`).append(`<a class="black"href="#" data-muralId="${mural.id}">${mural.location_details} - ${mural.neighborhood.name}</a><br>`)
         })
       })
 

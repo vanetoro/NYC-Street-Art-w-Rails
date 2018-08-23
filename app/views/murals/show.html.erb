@@ -4,24 +4,30 @@
 </div>
 
 by <%= link_to @mural.artist.artist_name, artist_path(@mural.artist) %><br>
-This is where you can find it! <%= @mural.location_details %><br>
+This is where you can find it! <p id="muralLocation"><%= @mural.location_details %></p>
 <%= active?(@mural) %><br>
-Neighborhood: <%= link_to @mural.neighborhood.name, neighborhood_path(@mural.neighborhood) %><br>
+Neighborhood: <p id="muralHood"><%= link_to @mural.neighborhood.name, neighborhood_path(@mural.neighborhood), id: 'muralHood' %></p>
 
 
 <%= link_to 'Edit', edit_artist_mural_path(@mural.artist, @mural) %>
 <%= delete_mural %>
-
+<%= link_to 'Next', artist_mural_path(@mural.artist, @mural.next) , class: 'nextMural'%>
+<%= link_to 'Previous', artist_mural_path(@mural.artist, @mural.previous), class: 'nextMural' %>
 
 <div id="mural">
-  
+
 </div>
 
 <script type="text/javascript" charset='utf-8'>
   $(function(){
-    $('#artistMurals').on('click', function (e) {
+    $('.nextMural').on('click', function (e) {
       e.preventDefault()
-      debugger
+      let path = e.target.pathname
+      let nextMural = $.getJSON(path)
+      nextMural.done(function(mural) {
+      $("#muralLocation").text(mural.location_details)
+      $("#muralHood").html(`<a data-id="${mural.neighborhood.id}" href="${mural.neighborhood.name}"> ${mural.neighborhood.name}</a>`)
+      })
     })
   })
 </script>

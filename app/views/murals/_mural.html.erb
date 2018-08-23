@@ -20,7 +20,6 @@ Check if mural is currently active?  <%= f.check_box :active %><br>
         var values = $(this).serialize()
         var posting = $.post('/murals', values)
         posting.done(function (data){
-          debugger
           console.log(data)
         })
     })

@@ -16,4 +16,12 @@ class Mural < ApplicationRecord
   def self.ordered_by_hood
     binding.pry
   end
+
+  def next
+    artist.murals.where("id > ?", id).first
+  end
+
+  def previous
+    artist.murals.where("id < ?", id).last
+  end
 end

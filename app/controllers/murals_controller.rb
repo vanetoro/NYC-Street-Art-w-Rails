@@ -22,11 +22,10 @@ class MuralsController < ApplicationController
 
   def show
     set_mural
-     respond_to do |format|
+    respond_to do |format|
       format.html
-      format.json { render json:, status: 200 }
+      format.json { render json: @mural , status: 200}
     end
-    # render json: @mural, status: 200
   end
 
   def edit
