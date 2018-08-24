@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# ruby '2.3.3' #mac
-ruby '2.3.1' #work
+ruby '2.3.3' #mac
+# ruby '2.3.1' #work
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
@@ -21,7 +21,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2', '~> 0.5.3'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'mini_magick'
-
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
