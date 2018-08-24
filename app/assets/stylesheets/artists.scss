@@ -25,6 +25,15 @@ h4.artist-title{
   padding-bottom: 100px;
   padding-left: 20px;
 }
+
 .black{
   color: black
+}
+li, ul{
+  line-height: .5;
+}
+
+#artistList{
+  max-width: 200px;
+  float: left;
 }
