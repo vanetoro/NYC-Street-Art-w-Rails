@@ -14,10 +14,6 @@ function displayBlock(element){
   })
 }
 
-function displayNewMuralForm(e) {
-    e.preventDefault()
-    displayBlock($("#newMuralForm"))
-}
 
 function nextMural(e){
   e.preventDefault()
@@ -30,11 +26,29 @@ function nextMural(e){
 
 }
 
+function displayNewMuralForm(e) {
+    e.preventDefault()
+    displayBlock($("#newMuralForm"))
+}
+
 function createMural(e){
   event.preventDefault();
-  var values = $(this).serialize()
-  var posting = $.post('/murals', values)
-  posting.done(function (data){
-    debugger
+  var values = $("#new_mural").serialize()
+  var newMural = $.post('/murals', values)
+  newMural.done(function (muralData){
+    newMuralLi(muralData)
   })
 }
+
+function newMuralLi(info) {
+  $("#artistMurals").append(
+    `<li><a id=${info.id} href=/artists/${info.artist.id}/murals/${info.id}> ${info.location_details}</a> located in <a href=/neighborhoods/${info.neighborhood.id}> ${info.neighborhood.name}</a></li>`
+  )
+}
+
+// function Mural(mural){
+//   this.id = mural.id
+//   this.location_details = mural.location_details
+//   this.neighborhood_id = mural.neighborhood_id
+//   this.active = mural.active
+// }
