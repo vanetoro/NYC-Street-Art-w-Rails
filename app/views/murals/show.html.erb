@@ -20,17 +20,3 @@ Neighborhood: <p id="muralHood"><%= link_to @mural.neighborhood.name, neighborho
 <div id="mural">
 
 </div>
-
-<script type="text/javascript" charset='utf-8'>
-  $(function(){
-    $('.nextMural').on('click', function (e) {
-      e.preventDefault()
-      let path = e.target.pathname
-      let nextMural = $.getJSON(path)
-      nextMural.done(function(mural) {
-      $("#muralLocation").text(mural.location_details)
-      $("#muralHood").html(`<a data-id="${mural.neighborhood.id}" href="${mural.neighborhood.name}"> ${mural.neighborhood.name}</a>`)
-      })
-    })
-  })
-</script>
