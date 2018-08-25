@@ -48,8 +48,15 @@ nav{
   float: right;
 }
 
+nav{
+  padding-bottom: 0;
+}
 .clear-nav{
   clear: both;
+}
+
+.white{
+  background-color: white;
 }
 
 img{

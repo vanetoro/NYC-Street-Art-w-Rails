@@ -15,10 +15,10 @@
   </head>
 
   <body>
-    <nav class="nav-right">
+    <nav class="nav-right sticky-top white">
       <%= link_to set_user.username.upcase, edit_user_path(set_user) %>  · <%= link_to 'SIGN OUT', signout_path %>
     </nav>
-    <nav class="nav-left">
+    <nav class="nav-left sticky-top white">
     <%= link_to 'ARTISTS', artists_path %> · <%= link_to 'NEIBORHOODS', neighborhoods_path %> · <%= link_to 'MURALS', murals_path %> · <%= link_to 'HISTORY', history_path %>
     </nav>
     <div class="clear-nav">
