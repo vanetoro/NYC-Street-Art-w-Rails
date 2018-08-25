@@ -35,29 +35,3 @@
 </div> -->
 
 <!-- <%= link_to 'New Mural', new_artist_mural_path(@artist) %> <%= link_to 'Edit Details', edit_artist_path %> -->
-
-
-<script type="text/javascript">
-  $("#artistMurals").on('click', function(event){
-    debugger
-    event.preventDefault()
-    let path = event['target']['pathname']
-    let showMural = $.get(path)
-    showMural.done(function(muralJSON){
-        $(`#locationDetails-${muralJSON.id}`).text(muralJSON.location_details)
-      $(`#neighborhood-${muralJSON.id}`).text(muralJSON.neighborhood.name)
-    })
-
-  })
-</script>
-
-<script type="text/javascript" charset='utf-8'>
-  $(function() {
-    $("#newMural").on('click', function(e) {
-      e.preventDefault()
-      $("#newMuralForm").css({
-        'display': 'block',
-    })
-  })
-  })
-</script>
