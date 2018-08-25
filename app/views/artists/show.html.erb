@@ -1,24 +1,22 @@
 <div class="artist-name">
   <h1 class="artist-title"><%= @artist.artist_name %></h1>
-
+  <%= show_next_artist(@nextArtist) %>
 </div>
 
 
 <%= instagram(@artist) %>
 
-<h4 >Real name: <%= @artist.name %><br></h4>
+<h4 >Real name: <span class="real-name"><%= @artist.name %></span><br></h4>
 
 <h3>Short Bio:</h3>
-<%= @artist.bio %><br>
+<p class="bio"><%= @artist.bio %></p>
 <h3>Murals: </h3>
 
 <ul id="artistMurals">
 
 <% @artist.murals.each do |mural| %>
 
- <li><%= link_to mural.location_details, artist_mural_path(@artist, mural), id:mural.id %> located in <%= link_to mural.neighborhood.name, neighborhood_path(mural.neighborhood)%>
-   <p id="locationDetails-<%= mural.id %>"></p>
-   <p id="neighborhood-<%= mural.id %>"></p>
+ <li><%= link_to mural.location_details, artist_mural_path(@artist, mural)%> located in <%= link_to mural.neighborhood.name, neighborhood_path(mural.neighborhood)%>
  </li>
  <br>
 <% end %>
