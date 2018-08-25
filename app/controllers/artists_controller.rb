@@ -11,13 +11,15 @@ class ArtistsController < ApplicationController
     set_artist
     @mural = Mural.new
     @nextArtist = Artist.next(@artist)
+    @previousArtist = Artist.previous(@artist)
     respond_to do |format|
       format.html
-      format.json { render json: { all_data:
-        { artist: @artist, nextArtist: @nextArtist
-          } , status: 200}
-        }
+      format.json { render json: @artist , status: 200}
     end
+      # format.json { render json: { all_data:
+      #   { artist: @artist, murals: @murals, nextArtist: @nextArtist,
+      #     } , status: 200}
+      #   }
   end
 
 
