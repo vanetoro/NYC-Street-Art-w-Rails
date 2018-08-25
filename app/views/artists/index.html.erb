@@ -1,18 +1,21 @@
 Here is a list of all the artists <br>
-
-<div id="artistList">
-<%= link_to 'Most Popular', artists_most_popular_path %> <div class="right"><%= link_to 'Add Artist', new_artist_path %></div>
-  <% @artists.each do |artist| %>
-  <h3 class="artistTitle-<%= artist.id %>"><%= link_to artist.artist_name, artist_path(artist) %></h4>
-    <%= link_to 'Murals', artist_path(artist),  class: 'quickView black' %>
-  <div id='artistMurals-<%= artist.id %>'>
+<div class="d-inline-flex p-2 bd-highlight">
+  <div class="d-flex flex-row bd-highlight mb-3">
+    <div id="artistList" class="col p-2 bd-highlight">
+      <% @artists.each do |artist| %>
+      <h3 class="artistTitle-<%= artist.id %>"><%= link_to artist.artist_name, artist_path(artist) %></h4>
+      <div class="col p-2 bd-highlight">
+        <%= link_to 'Murals', artist_path(artist),  class: 'quickView black' %>
+      </div>
+      <div id='artistMurals-<%= artist.id %>' class="d-md-inline-flex p-3 bd-highlight">
+      </div>
+      <% end %>
+    </div>
+    <div class="col">
+      <%= link_to 'Most Popular', artists_most_popular_path %> <div class="right"><%= link_to 'Add Artist', new_artist_path %></div>
+    </div>
   </div>
-  <% end %>
-
-
-
 </div>
-
 
 <script type="text/javascript" charset="utf-8">
 $(function() {
