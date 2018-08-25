@@ -22,6 +22,7 @@ gem 'omniauth-google-oauth2', '~> 0.5.3'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'mini_magick'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem "bootstrap-sass"
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

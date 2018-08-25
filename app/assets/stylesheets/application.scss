@@ -10,8 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
  */
 
 .main-text{
@@ -31,6 +31,7 @@ a{
 body{
   font-family: 'Waiting for the Sunrise', cursive;
   font-size: 1.2em;
+  padding-left: 30px;
 }
 
 nav{
@@ -41,6 +42,7 @@ nav{
 
 .nav-left{
   float: left;
+
 }
 .nav-right{
   float: right;
