@@ -17,4 +17,8 @@ class Artist < ApplicationRecord
     self.where("id > ?", artist.id).first
   end
 
+  def self.previous(artist)
+    self.where("id < ?", artist.id).first
+  end
+
 end
