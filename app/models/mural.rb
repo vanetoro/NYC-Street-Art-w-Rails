@@ -21,6 +21,9 @@ class Mural < ApplicationRecord
     artist.murals.where("id > ?", id).first
   end
 
+
+
+
   def previous
     artist.murals.where("id < ?", id).last
   end
