@@ -13,5 +13,8 @@ class Artist < ApplicationRecord
     joins(:murals).group(:artist_id).order('count(murals.artist_id)desc').limit(5)
   end
 
+  def self.next(artist)
+    self.where("id > ?", artist.id).first
+  end
 
 end
