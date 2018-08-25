@@ -6,11 +6,39 @@ function attachListeners(){
   $("#newMural").on('click', (e) => displayNewMuralForm(e))
   $("a.nextMural").on('click', (e) => nextMural(e))
   $("form#new_mural").on('submit', (e) => createMural(e))
+  $(".nextArtist").on('click', (e) => getNextArtist(e))
 }
 
 function displayBlock(element){
   $(element).css({
     'display': 'block'
+  })
+}
+
+function getNextArtist(e){
+  e.preventDefault()
+  let path = e['target']['dataset']['id']
+  let nextArtist = $.getJSON(path)
+  nextArtist.done(function(artist){
+    displayArtist(artist)
+  })
+}
+
+function displayArtist(allData){
+  let artist = allData.all_data.artist
+  let nextArtist = allData.all_data.nextArtist
+  $(".artist-title").text(artist.artist_name)
+  $(".real-name").text(artist.name)
+  $('.bio').text(artist.bio)
+  $("#instagram").attr("href", `http://www.instagram.com/${artist.instagram}`)
+  $(".nextArtist").attr("data-id",nextArtist.id; "href", `/artists/${artist.id}`)
+  displayArtistMurals(artist.murals)
+}
+
+function displayArtistMurals(muralArray) {
+  $("#artistMurals").empty()
+  muralArray.forEach(function(mural){
+    $("#artistMurals").append(`<li><a href="murals/${mural.id}">${mural.location_details}</a> located in <a href="neighborhoods${mural.neighborhood.id}">${mural.neighborhood.name}</a></li>`)
   })
 }
 
