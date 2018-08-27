@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
 
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise|Tajawal" rel="stylesheet">
@@ -15,12 +15,12 @@
   </head>
 
   <body>
-    <nav class="nav-right sticky-top white">
-      <%= link_to set_user.username.upcase, edit_user_path(set_user) %>  · <%= link_to 'SIGN OUT', signout_path %>
-    </nav>
-    <nav class="nav-left sticky-top white">
-    <%= link_to 'ARTISTS', artists_path %> · <%= link_to 'NEIBORHOODS', neighborhoods_path %> · <%= link_to 'MURALS', murals_path %> · <%= link_to 'HISTORY', history_path %>
-    </nav>
+      <nav class="nav-right sticky-top white">
+        <%= link_to set_user.username.upcase, edit_user_path(set_user) %>  · <%= link_to 'SIGN OUT', signout_path %>
+      </nav>
+      <nav class="nav-left sticky-top white">
+      <%= link_to 'ARTISTS', artists_path %> · <%= link_to 'NEIBORHOODS', neighborhoods_path %> · <%= link_to 'HISTORY', history_path %>
+      </nav>
     <div class="clear-nav">
 
     </div>
