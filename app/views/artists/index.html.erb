@@ -1,37 +1,27 @@
-Here is a list of all the artists <br>
-<div class="d-inline-flex p-2 bd-highlight">
-  <div class="d-flex flex-row bd-highlight mb-3">
-    <div id="artistList" class="col p-2 bd-highlight">
+<br>
+Click on the artist's name to more information! <br>
+<br>
+<div class="cotainer">
+  <div class="row align-items-start">
+    <div id="artistList" class="col-8">
       <% @artists.each do |artist| %>
-      <h3 class="artistTitle-<%= artist.id %>"><%= link_to artist.artist_name, artist_path(artist) %></h4>
-      <div class="col p-2 bd-highlight">
-        <%= link_to 'Murals', artist_path(artist),  class: 'quickView black' %>
+      <p class="artistTitle-<%= artist.id %>"><%= link_to artist.artist_name.upcase, artist_path(artist) %>
+      <span class="quickView pointer" data-id="<%= artist.id %>">murals</span></p>
+    <div class="row col justify-content-center">
+      <div class="col-4 quickView">
+
       </div>
-      <div id='artistMurals-<%= artist.id %>' class="d-md-inline-flex p-3 bd-highlight">
+      <div class="row align-items-start">
+        <div id='artistMurals-<%= artist.id %>' class="col-lg">
+        </div>
       </div>
+
+    </div>
       <% end %>
     </div>
-    <div class="col">
-      <%= link_to 'Most Popular', artists_most_popular_path %> <div class="right"><%= link_to 'Add Artist', new_artist_path %></div>
+    <div class="col-4">
+      <%= link_to 'Most Popular', artists_most_popular_path %> · <%= link_to 'Add Artist', new_artist_path %>
     </div>
   </div>
+  <div id="getTotal">Get Total</div>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-$(function() {
-  $(".quickView").on('click',function(e){
-    e.preventDefault()
-      var path = e.target.pathname
-      getMurals = $.getJSON(`${path}`)
-      getMurals.done(function(artist) {
-        let artistId = artist.id
-        $(`#artistMurals-${artistId}`).empty()
-        artist.murals.forEach(function(mural){
-          $(`#artistMurals-${artistId}`).append(`<a class="black"href="#" data-muralId="${mural.id}">${mural.location_details} - ${mural.neighborhood.name}</a><br>`)
-        })
-      })
-
-  })
-})
-
-</script>
