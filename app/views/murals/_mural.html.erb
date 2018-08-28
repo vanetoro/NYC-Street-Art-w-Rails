@@ -1,7 +1,7 @@
 <%= form_for mural do |f| %>
-<%= f.hidden_field :artist_id, value:  artist.id %>
+<%= f.hidden_field :artist_id, value:  artist.id, id: 'artistIdForm' %>
 Please give us a little information about where the mural is located:  <%= f.text_field :location_details%><br>
-Location: <%= f.collection_select :neighborhood_id, Neighborhood.all, :id, :name, include_blank: 'Please select a location' %><br>
+Location: <%= f.collection_select :neighborhood_id, Neighborhood.all, :id, :name, include_blank: 'Please select a location'%><br>
 Don't see the neighborhood please add it
 <%= f.fields_for :neighborhood, mural.build_neighborhood do |neighborhood_fields|%>
   <%= neighborhood_fields.text_field :name%><br>
@@ -9,6 +9,6 @@ Don't see the neighborhood please add it
 Check if mural is currently active?  <%= f.check_box :active %><br>
 <%= f.label :add_picture %>
 <%= f.file_field :avatar %>
-<%= f.submit %>
+<%= f.submit  id: 'submitBtn'%>
 <% end %>
 <%= delete_mural %>
