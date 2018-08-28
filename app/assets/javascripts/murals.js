@@ -1,14 +1,28 @@
-// $(document).ready(function() {
-//   attachListeners()
-// });
-//
-//
-// function attachListeners() {
-//   $("a.nextMural").on('click', (e) => console.log('newMural');nextMural(e))
-// }
+$(document).ready(function() {
+  attachMuralListeners()
+  console.log('im running');
+});
 
 
 
+function attachMuralListeners() {
+    $("a.getNextMural").on('click', (e) => nextMural(e))
+}
+
+
+function nextMural(e){
+  console.log('hello')
+  debugger
+  e.preventDefault()
+  let path = e['target']['pathname']
+  let nextMural = $.getJSON(path)
+  nextMural.done(function(mural) {
+  $("#muralLocation").text(mural.location_details)
+  $("#muralHood").html(`<a data-id="${mural.neighborhood.id}" href="${mural.neighborhood.name}"> ${mural.neighborhood.name}</a>`)
+
+  })
+
+}
 
 
 
