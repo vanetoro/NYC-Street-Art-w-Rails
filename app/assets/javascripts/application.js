@@ -14,4 +14,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require activestorage
-//= require_tree .
+//= require murals
+//= require artists
+//= require neighborhoods
