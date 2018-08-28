@@ -1,8 +1,20 @@
-<div class="artist-name">
-  <h1 class="artist-title"><%= @artist.artist_name %></h1>
-  <%= show_next_artist(@nextArtist) %>
+<div class="artist-name row">
+  <h1 class="col artist-title"><%= @artist.artist_name %></h1>
+
+  <div class="col align-bottom">
+
+
+  <%= content_tag(:a, 'Previous', class: "pointer showNextPrevious", id: "previousArtist") %>
+  <%= content_tag(:a, 'Next', class: "pointer showNextPrevious", id: "nextArtist" ) %>
+</div>
+<div class="col-8">
+
 </div>
 
+</div>
+
+<div class="artist-profile-pic">
+</div>
 
 <%= instagram(@artist) %>
 
@@ -21,15 +33,8 @@
  <br>
 <% end %>
 </ul>
-<h3>Don't see a Mural add it! <%= tag.a 'New Mural', id: 'newMural', class: 'pointer' %></h3>
+<h3>Don't see a Mural add it! <%= tag.a '+', id: 'newMural', class: 'pointer' %></h3>
 
-<div class="hide "id="newMuralForm">
+<div class="d-none hide"id="newMuralForm">
   <%= render partial: 'murals/mural', locals: {mural: @mural, artist: @artist}%>
 </div>
-
-
-<!-- <div id="displayMural">
-
-</div> -->
-
-<!-- <%= link_to 'New Mural', new_artist_mural_path(@artist) %> <%= link_to 'Edit Details', edit_artist_path %> -->
