@@ -3,9 +3,10 @@ class MuralsController < ApplicationController
   before_action :not_logged_in
 
   def index
-    # @murals = set_user.murals
-    @mural = Mural.order("RANDOM()").first
-    @nearby = Neighborhood.nearby(@mural)
+    @murals = set_user.murals
+    # @mural = Mural.all
+    # @mural = Mural.order("RANDOM()").first
+    # @nearby = Neighborhood.nearby(@mural)
   end
 
   def new
@@ -16,8 +17,7 @@ class MuralsController < ApplicationController
     @mural = Mural.new(mural_params)
     @mural.user = set_user
     if @mural.save
-        render json: @mural , status: 200
-        # redirect_to artist_path(@mural.artist)
+      render json: @mural , status: 200
     else
       render :new
     end
