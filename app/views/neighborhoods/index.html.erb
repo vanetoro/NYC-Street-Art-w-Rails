@@ -2,9 +2,8 @@ These are all the neighborhoods where you can find murals. <br>
 
 See the <%= link_to 'Top 3', neighborhoods_top_3_path %>
 <% @neighborhoods.each do |hood| %>
-
-<h2 class='hoods' id="<%=hood.id%>"><%= hood.name %></h2>
-<div class="hide" id="hoodMurals-<%=hood.id%>">
+<h2 id="<%=hood.id%>"><span class="pointer"><%= hood.name %></span> <a href="#"  class="hoods" id= "hood-<%= hood.id %>" data-id= "<%= hood.id %>">+</a></h2>
+<div class="d-none" id="hoodMurals-<%=hood.id%>">
   <ul>
     <% hood.murals.each do |mural| %>
     <li><%= link_to mural.location_details, mural_path(mural) %> by <%= link_to mural.artist.artist_name, artist_path(mural.artist) %> located in <%=link_to mural.neighborhood.name, neighborhood_path(mural.neighborhood) %><br></li>
@@ -12,14 +11,3 @@ See the <%= link_to 'Top 3', neighborhoods_top_3_path %>
   </ul>
   </div>
 <% end %>
-
-<script type="text/javascript" charset='utf-8'>
-$(function(){
-  $(".hoods").on('click', function(hood) {
-    let id = parseInt(hood.target.id)
-    $(`#hoodMurals-${id}`).css({
-      'display': 'block',
-    })
-  })
-})
-</script>
