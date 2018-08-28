@@ -16,19 +16,11 @@ module MuralsHelper
 
 
   def next_mural(mural)
-    if mural.next
-      link_to "More by #{@mural.artist.artist_name}" , artist_mural_path(@mural.artist, @mural.next) , class: 'nextMural'
-    else
-      link_to 'Next'
-    end
+      link_to "Next" , mural.next, class: 'getNextMural'
   end
 
   def previous_mural(mural)
-    if !mural.previous.nil?
-      link_to 'Previous', artist_mural_path(@mural.artist, @mural.previous), class: 'nextMural'
-    else
-      tag.a 'Previous', class: 'nextMural'
-    end
+      link_to 'Previous', mural.previous, class: 'getNextMural'
   end
 
   def nearby_murals(nearby)
