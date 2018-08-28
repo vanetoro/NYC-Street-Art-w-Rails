@@ -18,13 +18,23 @@ class Mural < ApplicationRecord
   end
 
   def next
-    artist.murals.where("id > ?", id).first
+    mural = Mural.where("id > ?", id).first
+    if mural
+      mural
+    else
+      Mural.first
+    end
   end
 
 
 
 
   def previous
-    artist.murals.where("id < ?", id).last
+    mural = Mural.where("id < ?", id).last
+    if mural
+      mural
+    else
+      Mural.last
+    end
   end
 end
