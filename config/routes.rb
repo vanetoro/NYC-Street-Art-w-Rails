@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'neighborhoods/top_3', to: 'neighborhoods#top3'
   get 'artists/most_popular', to: 'artists#popular'
   get '/signout', to: 'sessions#destroy', as: 'signout'
-
+  get '/artists/:id/next_artist', to: 'artists#next_artist'
+  get '/artists/:id/previous_artist', to: 'artists#previous_artist'
 
 
   resources :murals, only: [:index, :show, :destroy, :update , :new, :create]
