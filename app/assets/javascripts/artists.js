@@ -1,35 +1,59 @@
 $(document).ready(function() {
-  attachListeners();
+  attachArtistListeners();
+    console.log('im running artist');
+
 });
 
-function attachListeners(){
-  $(".hoods").on('click', (e) => toggleHoods(e))
+function attachArtistListeners(){
   $(".quickView").on('click', (e) => muralsQuickView(e))
-  $("a.nextMural").on('click', (e) => nextMural(e))
-  $("#nextArtist").on('click', (e) => getNextArtist(e))
+  $(".showNextPrevious").on('click', (e) => getNextArtist(e))
   $("#newMural").on('click', (e) => toggleNewMuralForm(e))
   $("form#new_mural").on('submit', () => createMural())
+  // $('#getTotal').on('click', (e) => getTotalMurals(e))
 }
 
+// function getTotalMurals() {
+//   var total;
+//   let artistArray = $.getJSON('/artists')
+//   artistArray.done(function(artists) {
+//     total = artists.reduce(function(murals, artist){ return murals + artist.murals.length},0)
+//     $('#getTotal').append(total)
+//   })
+// }
 
 function getNextArtist(e){
   e.preventDefault()
   let path = e['target']['dataset']['id']
   let nextArtist = $.getJSON(path)
-  // debugger
   nextArtist.done(function(artist){
     displayArtist(artist)
+    window.history.pushState('', '', path);
   })
 }
 
 function displayArtist(artist){
-  let nextArtist = artist.id + 1
+  setNextArtist(artist)
+  setPreviousArtist(artist)
   $(".artist-title").text(artist.artist_name)
   $(".real-name").text(artist.name)
   $('.bio').text(artist.bio)
   $("#instagram").attr("href", `http://www.instagram.com/${artist.instagram}`)
-  $("#nextArtist").attr("data-id",nextArtist)
+  $("#artistIdForm").attr('value', artist.id)
   displayArtistMurals(artist.murals)
+}
+
+function setNextArtist(artist){
+  let nextArtistinfo = $.getJSON(`/artists/${artist.id}/next_artist`)
+  nextArtistinfo.done(function(nextArtistJSON){
+    $("#nextArtist").attr("data-id",nextArtistJSON.id)
+  })
+}
+
+function setPreviousArtist(artist) {
+  let previousArtistinfo = $.getJSON(`/artists/${artist.id}/previous_artist`)
+  previousArtistinfo.done(function(previousArtistJSON){
+    $("#previousArtist").attr("data-id",previousArtistJSON.id)
+  })
 }
 
 function displayArtistMurals(muralArray) {
@@ -39,34 +63,9 @@ function displayArtistMurals(muralArray) {
   })
 }
 
-function nextMural(e){
-  e.preventDefault()
-  let path = e['target']['pathname']
-  let nextMural = $.getJSON(path)
-  nextMural.done(function(mural) {
-  $("#muralLocation").text(mural.location_details)
-  $("#muralHood").html(`<a data-id="${mural.neighborhood.id}" href="${mural.neighborhood.name}"> ${mural.neighborhood.name}</a>`)
-  })
 
-}
-
-function toggleHoods(e) {
-  e.preventDefault()
-  let id = parseInt(e.target.dataset.id)
-  togglePlusSign(id)
-  $(`#hoodMurals-${id}`).toggleClass("d-none")
-}
-
-
-function togglePlusSign(id){
-  if($(`#hood-${id}`).text().includes('+')){
-    $(`#hood-${id}`).text('-')
-  } else
-    $(`#hood-${id}`).text('+')
-  }
 
 function muralsQuickView(e) {
-  // e.preventDefault()
     var id = e.target.dataset.id
     getMurals = $.getJSON(`/artists/${id}`)
     getMurals.done(function(artist){
@@ -92,7 +91,6 @@ function createMural(e){
   $("#submitBtn").prop('disabled', false)
   newMural.done(function (muralData){
     let createdMural = new Mural(muralData)
-    // createdMural.isActive()
     let text = createdMural.createLine()
     $("#artistMurals").append(text)
   })
@@ -118,16 +116,10 @@ function Mural(mural){
 }
 
 Mural.prototype.createLine = function(){
-  // debugger
   return `<li><a id=${this.id} href=/artists/${this.artist_id}/murals/${this.id}> ${this.location_details}</a> located in <a href=/neighborhoods/${this.neighborhood_id}> ${this.neighborhood}</a></li>`
 }
 
 
-// function newMuralLi(mural) {
-//   $("#artistMurals").append(
-//     `<li><a id=${mural.id} href=/artists/${mural.artist_id}/murals/${mural.id}> ${mural.location_details}</a> located in <a href=/neighborhoods/${mural.neighborhood_id}> ${mural.neighborhood}</a></li>`
-//   )
-// }
 // function getProfilePic() {
 //   let path = $("#instagram")['0']['href']
 //   $.get(path, function(html){
