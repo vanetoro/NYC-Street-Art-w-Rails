@@ -1,14 +1,18 @@
 class ArtistsController < ApplicationController
   layout 'logged_in'
   before_action :not_logged_in
+  before_action :set_artist, only: [:show, :next_artist, :previous_artist]
 
 
   def index
     @artists =Artist.all_artists
+    respond_to do |format|
+      format.html
+      format.json { render json: @artists , status: 200}
+    end
   end
 
   def show
-    set_artist
     @mural = Mural.new
     @nextArtist = Artist.next(@artist)
     @previousArtist = Artist.previous(@artist)
@@ -16,12 +20,17 @@ class ArtistsController < ApplicationController
       format.html
       format.json { render json: @artist , status: 200}
     end
-      # format.json { render json: { all_data:
-      #   { artist: @artist, murals: @murals, nextArtist: @nextArtist,
-      #     } , status: 200}
-      #   }
   end
 
+  def next_artist
+    @next_artist = @artist.find_next_artist
+    render json: @next_artist, status: 200
+  end
+
+  def previous_artist
+    @previous_artist = @artist.find_previous_artist
+    render json: @previous_artist, status: 200
+  end
 
   def new
     @artist = Artist.new
