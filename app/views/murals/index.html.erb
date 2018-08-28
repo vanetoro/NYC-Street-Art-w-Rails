@@ -1,18 +1,15 @@
+<% if @murals.empty? %>
+  You haven't added any murals yet! Check out the <%= link_to'artists', artists_path %> page to add one.
+
+  <% else %>
+  Here is are all the murals you have added!
+<ul>
+    <% @murals.each do |mural| %>
+    <li><%= link_to mural.location_details, mural_path(mural) %> by <%= link_to mural.artist.artist_name, artist_path(mural.artist) %> located in <%=link_to mural.neighborhood.name, neighborhood_path(mural.neighborhood) %><br></li>
+    <% end %>
+  </ul>
+<% end %>
 
 
 
-<div class="image">
-   <%= image(@mural) %><br>
-</div>
-
-by <%= link_to @mural.artist.artist_name, artist_path(@mural.artist) %><br>
-This is where you can find it! <p id="muralLocation"><%= @mural.location_details %> <%= link_to 'Edit', edit_artist_mural_path(@mural.artist, @mural) %></p>
-
-<%= active?(@mural) %><br>
-Neighborhood: <p id="muralHood"><%= link_to @mural.neighborhood.name, neighborhood_path(@mural.neighborhood), id: 'muralHood' %></p>
-
-
-<%= next_mural(@mural) %>
-<%# binding.pry %>
-
-<%= nearby_murals(@nearby) %>
+<%# nearby_murals(@nearby) %>
